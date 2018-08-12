@@ -4,22 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.Button;
 import android.content.Intent;
 import android.support.design.widget.*;
 import java.math.BigDecimal;
-
-
+import java.math.RoundingMode;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    EditText mEditText1;
-    EditText mEditText2;
-
-    TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
 
                 case R.id.button4:
-                    CalcValue = A.divide(B);
+                    CalcValue = A.divide(B,10,BigDecimal.ROUND_HALF_UP);
                     break;
 
             }
 
             Intent intent = new Intent(this,SecondActivity.class);
-            intent.putExtra("value", CalcValue.toString());
+            intent.putExtra("value", CalcValue.stripTrailingZeros().toString());
             startActivity(intent);
 
             Log.d("UI-PARTS",CalcValue.toString());

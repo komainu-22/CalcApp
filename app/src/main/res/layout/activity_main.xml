@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/A"
         android:layout_centerHorizontal="true"
-        android:onClick="onClick_button1"
+        android:onClick="onClick"
         android:text="A + B =" />
 
     <Button
@@ -64,6 +64,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button3"
         android:onClick="onClick"
-        android:text="A ÷ B =" />
+        android:text="A ÷ B = (小数点10桁まで表示/四捨五入)" />
 
 </RelativeLayout>
